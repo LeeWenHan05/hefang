@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html class="hero-loading no-js" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+  <title>
+   HEFANG | Modern Botanical Drinks
+  </title>
+  <meta content="HEFANG brings fruit and familiar Chinese ingredients together in five modern botanical drinks made for everyday life." name="description"/>
+  <link as="fetch" crossorigin="" href="images/Hefangbottle.glb" rel="preload"/>
+  <link as="image" fetchpriority="high" href="images/hero-leaf-bank.webp" rel="preload"/>
+  <link as="image" href="images/crisp-pear-label-new.png" rel="preload"/>
+  <link as="image" href="images/H-Dbg-1.png" rel="preload"/>
+  <meta content="images/crisp-pear-filled.webp" name="twitter:image"/>
+  <meta content="HEFANG brings fruit and familiar Chinese ingredients together in five modern botanical drinks made for everyday life." name="twitter:description"/>
+  <meta content="HEFANG | Modern Botanical Drinks" name="twitter:title"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="website" property="og:type"/>
+  <meta content="images/crisp-pear-filled.webp" property="og:image"/>
+  <meta content="HEFANG brings fruit and familiar Chinese ingredients together in five modern botanical drinks made for everyday life." property="og:description"/>
+  <meta content="HEFANG | Modern Botanical Drinks" property="og:title"/>
+  <link href="images/Hefang-filled-logo.png" rel="apple-touch-icon"/>
+  <link href="images/Hefang-filled-logo.png" rel="icon" type="image/png"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="#FCFBF8" name="theme-color"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin=""/>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&amp;display=swap&amp;text=%E5%92%8C%E6%96%B9%E6%B2%81%E6%A2%A8%E6%B2%89%E6%A2%85%E9%9D%92%E8%8F%8A%E7%BB%92%E6%A1%83%E7%BB%9B%E8%8E%93%E4%BA%94" rel="stylesheet"/>
+  <script>
+   (function () {
+        const storageKey = 'hefang:intro-target';
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let navigationType = '';
+        try {
+            const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+            navigationType = navEntry ? navEntry.type : '';
+        } catch (error) {}
+
+        const shouldPlay = !reduceMotion;
+        const resetHomeToTop = !window.location.hash && navigationType !== 'back_forward';
+
+        window.__hefangCurrentPage = 'home';
+        window.__hefangPlayPageIntro = shouldPlay;
+        window.__hefangSkipHeroIntro = reduceMotion;
+        window.__hefangResetHomeToTop = resetHomeToTop;
+        window.__hefangHeroVideoReady = false;
+
+        if (resetHomeToTop) {
+            try { history.scrollRestoration = 'manual'; } catch (error) {}
+        }
+
+        document.documentElement.classList.toggle('hefang-page-intro', shouldPlay);
+        document.documentElement.classList.toggle('hefang-skip-page-intro', !shouldPlay);
+        if (reduceMotion) document.documentElement.classList.remove('hero-loading');
+
+        try { sessionStorage.removeItem(storageKey); } catch (error) {}
+        if (/^hefang-intro:(home|drinks)$/.test(window.name || '')) window.name = '';
+   })();
+  </script>
+  <script>
+   if (window.__hefangResetHomeToTop) {
+       const resetHomeScroll = () => window.scrollTo(0, 0);
+       window.addEventListener('pageshow', resetHomeScroll, { once: true });
+       document.addEventListener('DOMContentLoaded', () => {
+           requestAnimationFrame(() => requestAnimationFrame(resetHomeScroll));
+       }, { once: true });
+   }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  </script>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="responsive.css" rel="stylesheet"/>
+  <script>
+        document.documentElement.classList.remove('hero-runtime-ready');
+  </script>
+  <script>
+        window.__hefangPreventBootScroll = (event) => event.preventDefault();
+        window.__hefangPreventBootKeyScroll = (event) => {
+            const blockedKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+            if (blockedKeys.includes(event.key)) event.preventDefault();
+        };
+        window.__hefangReleaseBootLock = () => {
+            document.documentElement.classList.remove('hero-loading');
+            window.removeEventListener('wheel', window.__hefangPreventBootScroll);
+            window.removeEventListener('touchmove', window.__hefangPreventBootScroll);
+            window.removeEventListener('keydown', window.__hefangPreventBootKeyScroll);
+        };
+        window.__hefangMaybeSkipIntro = () => {
+            const threshold = Math.max(24, window.innerHeight * 0.04);
+            if (window.scrollY <= threshold) return;
+            window.__hefangSkipHeroIntro = true;
+            window.__hefangReleaseBootLock();
+        };
+        const reduceHeroMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const guardHeroBoot = !reduceHeroMotion && !window.location.hash;
+        if (guardHeroBoot) {
+            window.addEventListener('wheel', window.__hefangPreventBootScroll, { passive: false });
+            window.addEventListener('touchmove', window.__hefangPreventBootScroll, { passive: false });
+            window.addEventListener('keydown', window.__hefangPreventBootKeyScroll, { passive: false });
+
+            window.addEventListener('pageshow', () => {
+                window.setTimeout(window.__hefangMaybeSkipIntro, 0);
+            }, { once: true });
+            document.addEventListener('DOMContentLoaded', () => {
+                requestAnimationFrame(() => window.setTimeout(window.__hefangMaybeSkipIntro, 0));
+            }, { once: true });
+
+            window.__hefangHeroBootTimer = window.setTimeout(() => {
+                window.__hefangReleaseBootLock();
+            }, 3500);
+        } else {
+            document.documentElement.classList.remove('hero-loading');
+        }
+  </script>
+  <script>
+   document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');
+  </script>
+  <meta content="HEFANG" property="og:site_name"/>
+  <meta content="en_MY" property="og:locale"/>
+  <meta content="HEFANG modern botanical drinks in a soft pearl and botanical visual setting." property="og:image:alt"/>
+  <meta content="HEFANG modern botanical drinks in a soft pearl and botanical visual setting." name="twitter:image:alt"/>
+  <meta content="HEFANG" name="application-name"/>
+ </head>
+ <body data-page="home">
+  <a class="skip-link" href="#main-content">
+   Skip to content
+  </a>
+  <div class="page-transition-liquid">
+  </div>
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0;">
+   <filter height="200%" id="gooey-effect" width="200%" x="-50%" y="-50%">
+    <fegaussianblur in="SourceGraphic" result="blur" stddeviation="8">
+    </fegaussianblur>
+    <fecolormatrix in="blur" mode="matrix" result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7">
+    </fecolormatrix>
+    <feblend in="SourceGraphic" in2="goo">
+    </feblend>
+   </filter>
+   <filter height="180%" id="hefang-water-still" width="148%" x="-24%" y="-40%">
+    <feturbulence basefrequency="0.008 0.014" numoctaves="2" result="water-noise" seed="7" type="fractalNoise">
+     <animate attributename="baseFrequency" dur="9s" repeatcount="indefinite" values="0.008 0.014;0.012 0.009;0.008 0.014">
+     </animate>
+    </feturbulence>
+    <fedisplacementmap in="SourceGraphic" in2="water-noise" scale="7" xchannelselector="R" ychannelselector="G">
+    </fedisplacementmap>
+   </filter>
+   <filter height="204%" id="hefang-water-active" width="164%" x="-32%" y="-52%">
+    <feturbulence basefrequency="0.011 0.018" numoctaves="2" result="water-noise-active" seed="11" type="fractalNoise">
+     <animate attributename="baseFrequency" dur="4.8s" repeatcount="indefinite" values="0.011 0.018;0.018 0.011;0.011 0.018">
+     </animate>
+    </feturbulence>
+    <fedisplacementmap in="SourceGraphic" in2="water-noise-active" scale="14" xchannelselector="R" ychannelselector="G">
+    </fedisplacementmap>
+   </filter>
+  </svg>
+  <div class="pill-nav-container">
+   <nav aria-label="Primary" class="pill-nav">
+    <a aria-label="HEFANG Home" class="nav-logo hover-target" href="index.html">
+     <img alt="HEFANG" decoding="async" height="500" src="images/logo-icon.png" width="500"/>
+    </a>
+    <div class="pill-nav-items" id="gooey-menu-wrapper">
+     <ul class="pill-list two-item-nav">
+      <li>
+       <a aria-current="page" class="pill active" href="index.html">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="pill" href="drinks.html">
+        Our Drinks
+       </a>
+      </li>
+     </ul>
+     <span aria-hidden="true" class="effect filter">
+     </span>
+    </div>
+   </nav>
+  </div>
+  <main id="main-content">
+   <section class="brand-hero-section" id="scrolly-track">
+    <div class="hero-video-wrapper">
+     <video autoplay="" class="hero-bg-media" loop="" muted="" playsinline="" preload="auto">
+      <source src="images/hefangherobgvideo.mp4" type="video/mp4"/>
+     </video>
+    </div>
+    <div aria-hidden="true" class="hero-story-background">
+     <img alt="" class="hero-story-bg-media" decoding="async" height="900" src="images/H-Dbg-1.png" width="1600"/>
+    </div>
+    <div id="hero-interactive-stage">
+    </div>
+    <div aria-hidden="true" class="hero-tea-transition">
+     <div class="hero-tea-video-scene">
+      <video autoplay="" class="hero-tea-video-media" loop="" muted="" playsinline="" preload="metadata">
+       <source src="images/hefang-leaf-bg-video.mp4" type="video/mp4"/>
+       <source src="images/hefang-dense-tea-leaves-logo.mp4" type="video/mp4"/>
+      </video>
+     </div>
+     <div class="hero-leaf-seam hero-leaf-seam-top">
+      <div class="hero-leaf-bank-parallax">
+       <img alt="" class="hero-leaf-bank" decoding="sync" draggable="false" fetchpriority="high" height="900" src="images/hero-leaf-bank.webp" width="1600"/>
+      </div>
+     </div>
+     <div class="hero-leaf-seam hero-leaf-seam-bottom">
+      <div class="hero-leaf-bank-parallax">
+       <img alt="" class="hero-leaf-bank" decoding="sync" draggable="false" fetchpriority="high" height="900" src="images/hero-leaf-bank.webp" width="1600"/>
+      </div>
+     </div>
+    </div>
+    <div class="scrolly-overlays">
+     <div class="hero-text-container-new">
+      <h1 class="hero-main-title">
+       Rooted in
+       <br/>
+       <span class="text-accent">
+        Nature.
+       </span>
+      </h1>
+      <p class="hero-sub-description">
+       Traditional ingredients, made fresh for everyday life.
+      </p>
+      <a class="water-story-link hover-target" href="drinks.html#crisp-pear-detail">
+       <span aria-hidden="true" class="water-story-surface">
+       </span>
+       <span class="water-story-label">
+        Explore Crisp Pear
+        <span aria-hidden="true">
+         &nearr;
+        </span>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+   <section class="philosophy philosophy-experience" id="philosophy">
+    <img alt="" aria-hidden="true" class="philosophy-bg-media" decoding="async" height="900" loading="lazy" src="images/bg2.png" width="1600"/>
+    <div class="philosophy-shell">
+     <header class="philosophy-heading">
+      <span class="eyebrow-light">
+       THE DUAL DNA OF HEFANG
+      </span>
+      <div class="philosophy-title">
+       <h2>
+        <span>
+         Soft by nature.
+        </span>
+        <span>
+         Precise by design.
+        </span>
+       </h2>
+       <p>
+        <strong>
+         HE 和
+        </strong>
+        brings harmony.
+        <strong>
+         FANG 方
+        </strong>
+        gives it form.
+       </p>
+      </div>
+     </header>
+     <div aria-label="Interactive HE and FANG philosophy" class="philosophy-stage hover-target" id="philosophy-stage" style="--split: 50%;">
+      <div aria-hidden="true" class="philosophy-layer fang-layer">
+       <div class="formulation-grid">
+       </div>
+      </div>
+      <div aria-hidden="true" class="philosophy-layer he-layer">
+       <div class="organic-ripple organic-ripple-a">
+       </div>
+       <div class="organic-ripple organic-ripple-b">
+       </div>
+       <div class="organic-ripple organic-ripple-c">
+       </div>
+      </div>
+      <article class="philosophy-copy he-copy">
+       <span class="philosophy-number">
+        01
+       </span>
+       <p class="philosophy-cn" lang="zh-Hans">
+        和
+       </p>
+       <h3>
+        HE
+       </h3>
+       <p class="philosophy-tagline">
+        Harmony. Softness. Nature.
+       </p>
+       <p class="philosophy-description">
+        Fresh fruit meets familiar Chinese ingredients in a drink made for every day.
+       </p>
+      </article>
+      <article class="philosophy-copy fang-copy">
+       <span class="philosophy-number">
+        02
+       </span>
+       <p class="philosophy-cn" lang="zh-Hans">
+        方
+       </p>
+       <h3>
+        FANG
+       </h3>
+       <p class="philosophy-tagline">
+        Balance. Structure. Clarity.
+       </p>
+       <p class="philosophy-description">
+        Every ingredient has a purpose, and every recipe is carefully balanced.
+       </p>
+      </article>
+      <img alt="HEFANG" class="balance-morph-logo" decoding="async" height="500" id="balance-morph-logo" src="images/Hefang-filled-logo.png" width="500"/>
+      <div aria-live="polite" class="balance-statement" id="balance-statement">
+       <p>
+        Where harmony meets structure.
+       </p>
+      </div>
+      <button aria-label="Balance HE and FANG" aria-valuemax="80" aria-valuemin="20" aria-valuenow="50" aria-valuetext="Balanced" class="balance-slider" id="balance-slider" role="slider" type="button">
+       <span class="divider-line">
+       </span>
+       <span aria-hidden="true" class="divider-grip" id="divider-grip">
+       </span>
+      </button>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="why-title" class="why-section" id="why">
+    <div class="why-pin">
+     <img alt="" aria-hidden="true" class="why-transition-image" decoding="async" height="1882" src="images/why-pearl-continuum.png" width="1672"/>
+     <div class="why-stage">
+      <header class="why-heading-block" data-why-heading="">
+       <span class="why-heading-eyebrow">
+        THE HEFANG STORY
+       </span>
+       <h2 class="why-heading-text" id="why-title">
+        Why
+        <em>
+         we made
+        </em>
+        this.
+       </h2>
+       <span aria-hidden="true" class="why-heading-rule">
+       </span>
+      </header>
+      <div class="why-story-panels">
+       <article class="why-panel why-panel-opening" data-why-step="">
+        <div class="why-copy">
+         <h3 class="why-reveal-text">
+          Wellness should feel
+          <br/>
+          like life&mdash;
+          <em>
+           not medicine.
+          </em>
+         </h3>
+        </div>
+       </article>
+       <article class="why-panel why-panel-he" data-why-step="">
+        <span aria-hidden="true" class="why-ghost-glyph" lang="zh-Hans">
+         和
+        </span>
+        <div class="why-copy">
+         <span class="why-panel-kicker">
+          ROOTS, REIMAGINED
+         </span>
+         <p class="why-reveal-text">
+          Traditional ingredients,
+          <br/>
+          <em>
+           made for today.
+          </em>
+         </p>
+        </div>
+       </article>
+       <article class="why-panel why-panel-fang" data-why-step="">
+        <span aria-hidden="true" class="why-ghost-glyph" lang="zh-Hans">
+         方
+        </span>
+        <div class="why-copy">
+         <span class="why-panel-kicker">
+          CLEAR BY DESIGN
+         </span>
+         <p class="why-reveal-text">
+          Simple choices,
+          <br/>
+          <em>
+           clearly put together.
+          </em>
+         </p>
+        </div>
+       </article>
+       <article class="why-panel why-panel-final" data-why-step="">
+        <div class="why-copy">
+         <div class="why-final-mark why-final-word">
+          We
+         </div>
+         <p class="why-reveal-text why-final-statement">
+          <span class="why-final-small">
+           turn a simple drink
+          </span>
+          <br/>
+          <span class="why-final-large">
+           into a
+           <em>
+            moment to enjoy.
+           </em>
+          </span>
+         </p>
+         <small class="why-support-reveal">
+          Five blends. One simple idea: make everyday moments a little better.
+         </small>
+        </div>
+       </article>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="signature-title" class="signature-section signature-v4" id="signature">
+    <div aria-hidden="true" class="signature-v4-wash signature-v4-wash-a">
+    </div>
+    <div aria-hidden="true" class="signature-v4-wash signature-v4-wash-b">
+    </div>
+    <span aria-hidden="true" class="signature-v4-ghost" lang="zh-Hans">
+     沁
+    </span>
+    <div class="signature-v4-shell">
+     <header class="signature-v4-topbar" data-signature-reveal="">
+      <div class="signature-v4-meta">
+       <span class="section-kicker">
+        SIGNATURE RITUAL
+       </span>
+       <span>
+        ONE OF FIVE HEFANG DRINKS
+       </span>
+      </div>
+      <a class="hefang-liquid-cta hefang-liquid-cta--signature hover-target" href="drinks.html#crisp-pear-detail">
+       <span aria-hidden="true" class="hefang-liquid-cta__surface">
+       </span>
+       <span class="hefang-liquid-cta__label">
+        View Crisp Pear details
+        <span aria-hidden="true" class="hefang-liquid-cta__arrow"><svg class="hf-icon hf-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg></span>
+       </span>
+      </a>
+     </header>
+     <div class="signature-v4-grid">
+      <article class="signature-v4-story" data-signature-reveal="">
+       <span class="signature-v4-index">
+        01 / 05
+       </span>
+       <h2 id="signature-title">
+        Begin with
+        <br/>
+        <em>
+         something gentle.
+        </em>
+       </h2>
+       <div class="signature-v4-name-row">
+        <div class="signature-v4-product-name">
+         <h3>
+          Crisp Pear
+         </h3>
+         <p lang="zh-Hans">
+          沁梨
+         </p>
+        </div>
+        <span class="signature-v4-taste">
+         Crisp &middot; Juicy &middot; Gentle
+        </span>
+       </div>
+       <p class="signature-v4-description">
+        Pear and apple taste fresh and light. Jujube and goji add a soft, warm finish.
+       </p>
+      </article>
+      <figure aria-label="Interactive Crisp Pear botanical portrait" class="watercolor-reveal signature-v4-frame" data-back="images/crisp-pear-filled.webp" data-brush="0.105" data-decay="1.18" data-force="1.42" data-front="images/crisp-pear-plain.webp" data-reset="3000" data-resolution="0.56" data-strength="0.98" data-watercolor-lazy="" data-watercolor-reveal="" id="signature-watercolor">
+       <img alt="Crisp Pear bottle portrait" class="watercolor-fallback" decoding="async" height="2048" loading="lazy" src="images/crisp-pear-plain.webp" width="1536"/>
+       <canvas aria-hidden="true">
+       </canvas>
+       <div aria-hidden="true" class="watercolor-brush-cursor">
+        <span>
+        </span>
+       </div>
+       <figcaption>
+        Watercolour image reveal for Crisp Pear.
+       </figcaption>
+      </figure>
+      <aside aria-label="Crisp Pear formulation notes" class="signature-v4-formula" data-signature-reveal="">
+       <div class="signature-v4-formula-head">
+        <span>
+         THE RECIPE / 方
+        </span>
+        <p>
+         Fresh fruit first.
+         <br/>
+         Traditional ingredients in balance.
+        </p>
+       </div>
+       <ol>
+        <li>
+         <span>
+          01
+         </span>
+         <div>
+          <strong>
+           Pear
+          </strong>
+          <small>
+           light, clean freshness
+          </small>
+         </div>
+        </li>
+        <li>
+         <span>
+          02
+         </span>
+         <div>
+          <strong>
+           Apple
+          </strong>
+          <small>
+           gentle sweetness and body
+          </small>
+         </div>
+        </li>
+        <li>
+         <span>
+          03
+         </span>
+         <div>
+          <strong>
+           Jujube
+          </strong>
+          <small>
+           soft dried-fruit warmth
+          </small>
+         </div>
+        </li>
+        <li>
+         <span>
+          04
+         </span>
+         <div>
+          <strong>
+           Goji
+          </strong>
+          <small>
+           a mild fruit-and-herb finish
+          </small>
+         </div>
+        </li>
+       </ol>
+      </aside>
+     </div>
+     <footer class="signature-v4-footer signature-v5-footer" data-signature-reveal="">
+      <p>
+       Fresh fruit, balanced with familiar Chinese ingredients.
+      </p>
+     </footer>
+    </div>
+   </section>
+   <section aria-labelledby="collection-title" class="collection-gateway collection-v4" id="collection">
+    <div class="collection-v4-shell">
+     <header class="collection-v4-heading">
+      <div>
+       <span class="section-kicker">
+        THE HEFANG COLLECTION
+       </span>
+       <h2 id="collection-title">
+        Five blends.
+        <br/>
+        <em>
+         Five moods to explore.
+        </em>
+       </h2>
+      </div>
+      <div class="collection-v4-intro">
+       <p>
+        Explore five drinks with different tastes, colours and moods. Open Our Drinks to see what is inside each one.
+       </p>
+       <a class="hefang-liquid-cta hefang-liquid-cta--collection hover-target" href="drinks.html">
+        <span aria-hidden="true" class="hefang-liquid-cta__surface">
+        </span>
+        <span class="hefang-liquid-cta__label">
+         Explore all drinks
+         <span aria-hidden="true" class="hefang-liquid-cta__arrow"><svg class="hf-icon hf-icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg></span>
+        </span>
+       </a>
+      </div>
+     </header>
+     <div class="collection-v4-body">
+      <figure aria-hidden="true" class="collection-preview collection-v4-preview">
+       <span class="collection-v4-glyph" id="collection-preview-glyph" lang="zh-Hans">
+        沁
+       </span>
+       <span class="collection-preview-ring">
+       </span>
+       <img alt="" decoding="async" height="1200" id="collection-preview-image" loading="lazy" src="images/crisp-pear-filled.webp" width="900"/>
+       <figcaption id="collection-preview-note">
+        Crisp &middot; Juicy &middot; Gentle
+       </figcaption>
+      </figure>
+      <div aria-label="HEFANG blend collection" class="collection-index collection-v4-index">
+       <a class="is-active" data-collection-accent="var(--drink-crisp-accent)" data-collection-glyph="沁" data-collection-note="Crisp &middot; Juicy &middot; Gentle" data-collection-preview="images/crisp-pear-filled.webp" href="drinks.html#crisp-pear-detail">
+        <span>
+         01
+        </span>
+        <strong>
+         Crisp Pear
+        </strong>
+        <small lang="zh-Hans">
+         沁梨
+        </small>
+        <i>
+         Gentle
+        </i>
+       </a>
+       <a data-collection-accent="var(--drink-amber-accent)" data-collection-glyph="沉" data-collection-note="Tangy &middot; Roasted &middot; Deep" data-collection-preview="images/amber-plum-filled.webp" href="drinks.html#amber-plum-detail">
+        <span>
+         02
+        </span>
+        <strong>
+         Amber Plum
+        </strong>
+        <small lang="zh-Hans">
+         沉梅
+        </small>
+        <i>
+         Deep
+        </i>
+       </a>
+       <a data-collection-accent="var(--drink-citrus-accent)" data-collection-glyph="青" data-collection-note="Floral &middot; Citrus &middot; Light" data-collection-preview="images/citrus-bloom-filled.webp" href="drinks.html#citrus-bloom-detail">
+        <span>
+         03
+        </span>
+        <strong>
+         Citrus Bloom
+        </strong>
+        <small lang="zh-Hans">
+         青菊
+        </small>
+        <i>
+         Light
+        </i>
+       </a>
+       <a data-collection-accent="var(--drink-velvet-accent)" data-collection-glyph="绒" data-collection-note="Soft &middot; Peachy &middot; Warm" data-collection-preview="images/velvet-peach-filled.webp" href="drinks.html#velvet-peach-detail">
+        <span>
+         04
+        </span>
+        <strong>
+         Velvet Peach
+        </strong>
+        <small lang="zh-Hans">
+         绒桃
+        </small>
+        <i>
+         Warm
+        </i>
+       </a>
+       <a data-collection-accent="var(--drink-ruby-accent)" data-collection-glyph="绛" data-collection-note="Bright &middot; Berry &middot; Tart" data-collection-preview="images/ruby-berry-filled.webp" href="drinks.html#ruby-berry-detail">
+        <span>
+         05
+        </span>
+        <strong>
+         Ruby Berry
+        </strong>
+        <small lang="zh-Hans">
+         绛莓
+        </small>
+        <i>
+         Bright
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="hefang-footer">
+   <div class="footer-brand">
+    <img alt="" class="footer-mark" decoding="async" height="500" src="images/Hefang-filled-logo.png" width="500"/>
+    <div>
+     <strong>
+      HEFANG
+     </strong>
+     <small>
+      Modern Botanical Drinks
+     </small>
+    </div>
+   </div>
+   <div class="footer-links">
+    <a href="index.html">
+     Home
+    </a>
+    <a href="drinks.html">
+     Our Drinks
+    </a>
+    <a href="drinks.html#order">
+     How to Order
+    </a>
+    <a href="drinks.html#faq">
+     FAQ
+    </a>
+    <a aria-label="HEFANG on Instagram" href="https://www.instagram.com/my.hefang/" rel="noopener noreferrer" target="_blank">
+     Instagram
+    </a>
+   </div>
+   <p class="footer-note">
+    Fruit and traditional ingredients, made for everyday drinking.
+   </p>
+   <p class="footer-copyright">
+    &copy; 2026 HEFANG (和方). All rights reserved.
+   </p>
+  </footer>
+  <div class="custom-cursor">
+  </div>
+  <script src="watercolor-reveal.js">
+  </script>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
